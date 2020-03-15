@@ -1,0 +1,20 @@
+<% @page_class = 'user' %>
+<% @page_title = '会員情報' %>
+<div class="mv">
+  <h2>Login</h2>
+</div>
+<div class="cts">
+  <table>
+    <%= form_for(:session, url: login_path) do |f| %>
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= f.email_field :email, class: '' %></td>
+    </tr>
+    <tr>
+      <th>パスワード</th>
+      <td><%= f.password_field :password, class: '' %></td>
+    </tr>
+  </table>
+  <div class="btn"><%= f.submit 'ログイン', class: '' %></div>
+<% end %>
+</div>

@@ -1,0 +1,23 @@
+<% @page_class = 'user' %>
+<% @page_title = '会員情報' %>
+<div class="mv">
+  <h2>User</h2>
+</div>
+<div class="cts">
+  <table>
+    <tr>
+      <th>ユーザーネーム</th>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= @user.email %></td>
+    </tr>
+  </table>
+
+  <div class="btn_wrap">
+    <div class="btn"><%= link_to '退会する', user_path(current_user), method: :delete , data: { confirm: '本当に退会しますか？' } %></div>
+    <div class="btn"><%= link_to '会員情報を変更する', edit_user_path(@user) %></div>
+  </div>
+
+</div>

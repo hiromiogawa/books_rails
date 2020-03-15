@@ -1,0 +1,2 @@
+class Addto < Ownership
+end

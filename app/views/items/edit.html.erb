@@ -1,0 +1,46 @@
+<% @page_class = 'item' %>
+<div class="mv">
+  <h2>Book</h2>
+</div>
+<div class="cts">
+  <div class="wrap">
+    <div class="item_image"><img src="<%= @item.image_url %>" alt=""></div>
+    <section class="item_statsu">
+      <h3><%= @item.title %></h3>
+      <%= form_for @ownership, url: item_path do |f| %>
+        <table>
+          <tr>
+            <th>読書状況</th>
+            <td class="radio">
+              <%= f.radio_button :statsu, "欲しい" %><label for="addto_statsu_欲しい">欲しい</label>
+              <%= f.radio_button :statsu, "未読" %><label for="addto_statsu_未読">未読</label>
+              <%= f.radio_button :statsu, "読書中" %><label for="addto_statsu_読書中">読書中</label>
+              <%= f.radio_button :statsu, "読書済" %><label for="addto_statsu_読書済">読書済</label>
+              <%= f.radio_button :statsu, "積み本" %><label for="addto_statsu_積み本">積み本</label>
+            </td>
+          </tr>
+          <tr>
+            <th>媒体</th>
+            <td class="radio">
+              <%= f.radio_button :media, "書籍" %><label for="addto_media_書籍">書籍</label>
+              <%= f.radio_button :media, "電子書籍" %><label for="addto_media_電子書籍">電子書籍</label>
+              <%= f.radio_button :media, "オーディオブック" %><label for="addto_media_オーディオブック">オーディオブック</label>
+            </td>
+          </tr>
+          <tr>
+            <th>メモ</th>
+            <td><%= f.text_area :memo %></td>
+          </tr>
+          <tr>
+            <th>感想</th>
+            <td><%= f.text_area :imp %></td>
+          </tr>
+        </table>
+        <div class="btn"><%= f.submit '変更する' %></div>
+      <% end %>
+      <div class="btn"><%= render 'ownerships/addto_button', item: @item %></div>
+      <div class="btn"><%= link_to '戻る', item_path(@item) %></div>
+
+    </section>
+
+  </div>

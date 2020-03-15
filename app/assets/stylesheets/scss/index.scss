@@ -1,0 +1,481 @@
+@import "_mixin";
+@import "variable";
+
+.index {
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    width: 100%;
+    height: 100vh;
+    max-height: 58vw;
+    min-height: 50vw;
+    overflow: hidden;
+    @include large {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(11, 1fr);
+      height: auto;
+      min-height: auto;
+      max-height: none;
+    }
+
+    .heading {
+      position: absolute;
+      color: #FFF;
+      font-size: 5.208vw;
+      font-family: 'Anton', ;
+      letter-spacing: 0.208vw;
+      text-shadow:2px 2px 3px #000;
+      transform: scale(1, .8);
+      @include large {
+        font-size: 8vw;
+      }
+    }
+
+    section {
+      position: relative;
+      overflow: hidden;
+      filter: grayscale(1);
+      transition: filter .2s;
+
+      .bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform:  translate(-50%, -50%);
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        overflow: hidden;
+        transition: transform .3s;
+        background-repeat: no-repeat;
+      }
+
+      &:hover {
+        filter: grayscale(0);
+
+        .bg {
+          transform:  translate(-50%, -50%) scale(1.3);
+        }
+      }
+    }
+
+    .reading {
+      grid-row: 1/11;
+      grid-column: 1/9;
+      padding: 3.333vw;
+      @include large {
+        grid-row: 1/7;
+        grid-column: 1/13;
+        padding: 40px;
+      }
+      @include medium {
+        padding: 3.129vw;
+      }
+
+      @include small {
+        padding-bottom: 12vw;
+        grid-row: 1/8;
+      }
+
+      .bg {
+        background-image: url(/assets/index/reading.jpg);
+        background-size: 60vw;
+        background-position: -4vw 0;
+        background-repeat: no-repeat;
+        @include large {
+        background-size:cover;
+        background-position: 0;
+        }
+      }
+
+      .heading {
+        bottom: 1.042vw;
+        left: 4.167vw;
+        @include large {
+          bottom: 250px;
+          left: 16px;
+        }
+        @include medium {
+          bottom: 32.594vw;
+          left: 2.086vw;
+        }
+        @include small {
+          bottom: 0.594vw;
+          left: 60.086vw;
+        }
+      }
+
+      .slide {
+
+        li {
+          text-align: center;
+
+          a {
+            display: inline-block;
+
+            img {
+              height: 27.083vw;
+              margin: 0 auto;
+              @include large {
+                height: 400px;
+              }
+              @include medium {
+                height: 52.151vw;
+              }
+              @include small {
+                height: 90vw;
+              }
+            }
+          }
+
+          h3 {
+            margin-top: 0.417vw;
+            text-align: center;
+            font-size: 1.25vw;
+            color: #FFF;
+            @include large {
+              margin-top: 16px;
+              font-size: 24px;
+            }
+            @include medium {
+              margin-top: 2.086vw;
+              font-size: 3.129vw
+            }
+            @include small {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+
+      .slide_thumb {
+
+        .slick-track {
+          display: flex;
+          justify-content: center;
+          margin-top: 2.083vw;
+          transform: none !important;
+          @include large {
+            margin-top: 24px;
+          }
+
+          li {
+            display:  inline-block;
+            width: auto !important;
+            filter: grayscale(1);
+
+            &:not(:last-of-type) {
+              margin-right: 0.833vw;
+              @include large {
+                margin-right: 16px;
+              }
+              @include medium {
+                margin-right: 2.086vw;
+              }
+            }
+
+            &.slick-current {
+              filter: grayscale(0);
+            }
+
+            img {
+              max-height: 7.292vw;
+              display:  inline-block;
+              @include large {
+                max-height: none;
+                height: 150px;
+              }
+              @include medium {
+                height: 19.556vw;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .user {
+      grid-row: 1/3;
+      grid-column: 9/21;
+      @include large {
+        grid-row: 9/12;
+        grid-column: 1/5;
+      }
+      @include small {
+
+      }
+
+      .bg {
+        background-image: url(/assets/index/member.jpg);
+        background-size: 65vw;
+        background-position: 0;
+        background-repeat: no-repeat;
+        @include large {
+          background-size: cover;
+          background-position: 0;
+        }
+      }
+
+      .heading {
+        top: 2.083vw;
+        left: 2.083vw;
+      }
+    }
+
+    .list {
+      grid-row: 3/11;
+      grid-column: 16/21;
+      @include large {
+        grid-row: 7/12;
+        grid-column: 9/13;
+      }
+      @include small {
+        grid-row: 8/12;
+      }
+      .bg {
+        background-image: url(/assets/index/booklist.jpg);
+        background-size: 73vw;
+        background-position: -11vw 0;
+        background-repeat: no-repeat;
+        @include large {
+          background-size: cover;
+          background-position: 0;
+        }
+      }
+
+      h2 {
+        top: 16vw;
+        left: 7.25vw;
+      }
+    }
+
+    .add {
+      grid-row: 3/7;
+      grid-column: 9/16;
+      @include large {
+        grid-row: 7/9;
+        grid-column: 1/9;
+      }
+      @include small {
+        grid-row: 8/9;
+      }
+
+      .bg {
+        background-image: url(/assets/index/add.jpg);
+        background-size: 53vw;
+        background-position: -11vw -5vw;
+        @include large {
+          background-size: 68vw;
+          background-position: 0;
+        }
+      }
+
+      .serch_wrap {
+
+      }
+
+      .serch {
+        position: absolute;
+        right: 24px;
+        top: 40px;
+        @include large {
+          top: auto;
+          bottom: 24px;
+          right: auto;
+          left: 24px;
+        }
+        @include medium {
+          bottom: 8px;
+        }
+        input[type="text"] {
+          display: block;
+          width: 32px;
+          opacity: 0;
+          transition: width .3s;
+          border-radius: 60px;
+          height: 50px;
+          vertical-align: middle;
+          padding: 12px;
+          font-size: 16px;
+          border: solid 1px #000;
+          @include large {
+            font-size: 12px;
+            height: 34px;
+          }
+          @include medium {
+            opacity: 1;
+            width: 200px !important;
+          }
+          @include small {
+            width: 120px !important;
+          }
+          &:focus {
+            outline: 0;
+          }
+        }
+
+        .serch_btn {
+          position: absolute;
+          right: 1px;
+          top: 50%;
+          transform: translateY(-50%);
+          display: inline-block;
+          border-radius: 50%;
+          background-color: #FFF;
+          input {
+            width: 48px;
+            height: 48px;
+            display: block;
+            background-image: url(/assets/index/serch.png);
+            background-size: 24px;
+            background-position: center;
+            background-repeat: no-repeat;
+            @include large {
+              width: 32px;
+              height: 32px;
+              background-size: 16px;
+            }
+          }
+        }
+      }
+
+      .heading {
+        top: 9.375vw;
+        right: 2.083vw;
+      }
+
+      &:hover {
+
+        .serch {
+
+          input[type="text"] {
+            width: 320px;
+            opacity: 1;
+              @include large {
+                width: 180px;
+              }
+          }
+        }
+      }
+    }
+
+    .want {
+      grid-row: 7/11;
+      grid-column: 9/16;
+      @include large {
+        grid-row: 9/12;
+        grid-column: 5/9;
+      }
+
+      .bg {
+        background-image: url(/assets/index/want.jpg);
+        background-size: 67vw;
+        background-position: -25vw 0;
+        background-repeat: no-repeat;
+        @include large {
+          background-size: cover;
+          background-position: -26vw;
+        }
+        @include medium {
+          background-position: -40vw;
+        }
+      }
+
+      .heading {
+        top: 7.25vw;
+        left: 7.25vw;
+      }
+    }
+  }
+}
+
+.index {
+
+  .top_mv {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    background-image: url(/assets/index/top.jpg);
+    background-position: center;
+    background-size: contain;
+    margin-bottom: 40px;
+    @include medium {
+      height: 300px;
+      min-height: auto;
+      margin-bottom: 0;
+    }
+
+    .txt_area {
+      position: absolute;
+      background: rgba(255, 255, 255, .7);
+      padding: 1.25vw;
+      top: 50%;
+      left: 3.333vw;
+      font-family: 'Anton', ;
+      font-size: 3.333vw;
+        @include medium {
+          font-size: 18px;
+        }
+    }
+  }
+
+  .top_cts {
+    padding: 0 16px;
+    max-width: 1232px;
+    margin: 0 auto;
+    padding: 40px 0;
+
+    .sec_wrap {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      @include medium {
+        display: block;
+      }
+
+      section {
+        position: relative;
+        display: flex;
+        width: calc(100% / 3);
+        height: 320px;
+        align-items: center;
+        justify-content: center;
+        background-size: 80vw;
+        background-repeat: no-repeat;
+        background-position: center;
+        filter: grayscale(1);
+        @include medium {
+          width: 100%;
+          height: 200px;
+          background-size: 100% auto;
+        }
+
+        &.top_list {
+          background-image: url(/assets/index/booklist.jpg);
+        }
+
+        &.top_book {
+          background-image: url(/assets/index/add.jpg);
+          background-position: -43vw center;
+          @include medium {
+            background-position: center;
+          }
+        }
+
+        &.top_user {
+          background-image: url(/assets/index/member.jpg);
+        }
+
+        h2 {
+          position: relative;
+          font-size: 24px;
+          text-align: center;
+          transform: none;
+          z-index: 1;
+        }
+      }
+    }
+  }
+}

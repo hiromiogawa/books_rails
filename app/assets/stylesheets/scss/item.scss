@@ -1,0 +1,143 @@
+@import "_mixin";
+@import "variable";
+
+$book_width: 320px;
+
+.item {
+
+  h3 {
+    display: inline-block;
+    font-size: 32px;
+    font-weight: bold;
+    line-hight: 1.3;
+    margin-bottom: 32px;
+    border-bottom: solid 1px #000;
+    @include large {
+      font-size: 2.667vw;
+      margin-bottom: 2.667vw;
+    }
+    @include l_med {
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+    @include small {
+      font-size: 20px;
+    }
+  }
+
+  .mv {
+    background-image: url(/assets/index/booklist.jpg);
+    margin-bottom: 160px;
+      @include large {
+        margin-bottom: 13.333vw;
+      }
+      @include medium {
+        margin-bottom: calc(7.5vw + 56px);
+      }
+  }
+
+  .cts {
+    background-color: #e4e4e4;
+
+    .wrap {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      padding: 24px 64px;
+      margin: 88px auto;
+      background-image: url(/assets/item/bg02.png);
+      background-size: 100% auto;
+      background-repeat: repeat-y;
+      @include large {
+        padding: 2vw 5.333vw;
+        margin: 7.5vw auto;
+        @include l_med {
+          display: block;
+          padding: 20px 5.333vw;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;;
+        display: block;
+        height: 100px;
+        width: 100%;
+        top: 0;
+        left: 0;
+        transform: translateY(-99%);
+        background-image: url(/assets/item/bg01.png);
+        background-size: 100% auto;
+        background-position: bottom;
+        background-repeat: no-repeat;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 88px;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        background-image: url(/assets/item/bg03.png);
+        background-size: 100% auto;
+        background-position: top;
+        background-repeat: no-repeat;
+      }
+
+      .item_image {
+        width: $book_width;
+        max-width: $book_width;
+        text-align: center;
+        margin: 0 auto;
+        @include l_med {
+          width: 100%;
+        }
+        img {
+          width: 100%;
+        }
+      }
+
+      .item_statsu {
+        width: calc(100% - (#{$book_width} + 40px);
+        @include l_med {
+          margin-top: 40px;
+          width: 100%;
+        }
+
+        table {
+          margin-bottom: 40px;
+        }
+
+        .not_add {
+          margin-bottom: 40px;
+          text-align: center;
+        }
+
+        .edit_addto {
+          margin-bottom: 16px;
+        }
+      }
+    }
+
+    .add_user {
+      margin-top: 160px;
+      padding: 40px 24px;
+      @include l_med {
+        margin-top: 120px;
+      }
+
+      @include medium {
+        margin-top: 3.129vw;
+      }
+
+      li {
+
+        &:not(:last-of-type) {
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+}

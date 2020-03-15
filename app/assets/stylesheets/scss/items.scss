@@ -1,0 +1,167 @@
+@import "_mixin";
+@import "pagination";
+@import "variable";
+
+.mv.mybook {
+  background-image: url(/assets/index/booklist.jpg);
+}
+
+.mv.add {
+  background-image: url(/assets/index/add.jpg);
+  background-position: right -345px;
+  @include large {
+    background-position: right -200px top -345px;
+  }
+  @include medium {
+    background-size: 900px;
+    background-position: right -100px top -100px;
+  }
+  @include small {
+    background-size: 700px;
+  }
+}
+
+.items {
+
+  .statsu_name {
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .serch_wrap {
+    text-align: center;
+    margin-bottom: 40px;
+
+    p {
+      margin-bottom: 4px;
+    }
+
+    .serch {
+      position: relative;
+      display: inline-block;
+
+      input[type="text"],
+      select {
+        display: inline-block;
+        width: 100%;
+        max-width: 400px;
+        transition: width .3s;
+        border-radius: 60px;
+        height: 50px;
+        vertical-align: middle;
+        padding: 12px;
+        font-size: 16px;
+        border: solid 1px #000;
+        vertical-align: middle;;
+
+        &:focus {
+          outline: 0;
+        }
+
+      }
+      select {
+        width: 160px;
+      }
+
+      .serch_btn {
+        position:  absolute;
+        top: 50%;
+        right: 1px;
+        display: inline-block;
+        border-radius: 50%;
+        background-color: #FFF;
+        transform: translateY(-50%);
+        input {
+          width: 48px;
+          height: 48px;
+          display: block;
+          background-image: url(/assets/index/serch.png);
+          background-size: 24px;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+
+  .item_list {
+    display: flex;
+    flex-wrap: wrap;
+    @include small {
+      display: block;
+    }
+
+    li {
+      background-color: #FFF;
+      padding: 16px;
+
+      @include min_medium {
+        width: 32%;
+      }
+      @include medium {
+        width: 48%;
+      }
+      @include small {
+        width: 100%;
+       }
+
+      &:not(:nth-of-type(3n)) {
+        @include min_medium {
+          margin-right: 2%;
+        }
+      }
+
+      &:not(:nth-of-type(2n)) {
+        @include medium {
+          margin-right: 4%;
+        }
+      }
+
+      &:not(:nth-of-type(-n+3)) {
+        @include min_medium {
+          margin-top: 48px;
+        }
+      }
+
+      &:not(:nth-of-type(-n+2)) {
+        @include medium {
+          margin-top: 48px;
+        }
+      }
+
+      &:not(:last-of-type) {
+        @include small {
+          margin-bottom: 48px;
+        }
+      }
+
+      .item_img {
+        display: flex;
+        align-items: flex-end;
+        img {
+          width: 100%;
+        }
+      }
+
+      .statsu_wrap {
+        margin-top: 16px;
+
+        .title {
+          text-align: center;
+          font-weight: bold;
+        }
+
+        .autor {
+          margin-top: 8px;
+          text-align: center;
+          font-size: 14px;
+        }
+      }
+
+      .btn {
+        margin-top: 16px;
+      }
+    }
+  }
+}

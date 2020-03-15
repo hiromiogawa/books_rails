@@ -1,0 +1,36 @@
+@mixin large {
+  @media screen and (max-width: $large) {
+    @content;
+  }
+}
+@mixin l_med {
+  @media screen and (max-width: $l_med) {
+    @content;
+  }
+}
+@mixin medium {
+  @media screen and (max-width: $medium)  {
+    @content;
+  }
+}
+@mixin small {
+  @media screen and (max-width: $small)  {
+    @content;
+  }
+}
+
+@mixin min_large {
+  @media screen and (min-width: $large) {
+    @content;
+  }
+}
+@mixin min_medium {
+  @media screen and (min-width: $medium)  {
+    @content;
+  }
+}
+@mixin min_small {
+  @media screen and (min-width: $small)  {
+    @content;
+  }
+}

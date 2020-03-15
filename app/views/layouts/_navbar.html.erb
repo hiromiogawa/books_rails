@@ -1,0 +1,23 @@
+<header class="<%= '_head' if page_class != 'index' %>">
+  <div class="nav_wrap">
+    <nav>
+      <ul>
+          <li><a href="/">HOME</a></li>
+          <% if logged_in? %>
+          <li><%= link_to 'アイテムを追加', new_item_path  %></li>
+          <li><%= link_to '本一覧', mybook_path%></li>
+          <li><%= link_to '会員情報', user_path(current_user)  %></li>
+          <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+          <% else %>
+          <li><%= link_to '新規登録', signup_path %></li>
+          <li><%= link_to 'ログイン', login_path %></li>
+          <% end %>
+      </ul>
+    </nav>
+  </div>
+  <div class="menu">
+    <div class="menu-inner">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,37 @@
+@import "_mixin";
+@import "variable";
+
+.user {
+
+  .mv {
+    background-image: url(/assets/index/member.jpg);
+    @include large {
+      background-position: right -200px top -345px;
+    }
+    @include medium {
+      background-size: 900px;
+      background-position: right -100px top -100px;
+    }
+    @include small {
+      background-size: 700px;
+    }
+  }
+
+  table {
+    max-width: 767px;
+    margin: 0 auto 40px;
+
+    th {
+      @include min_small {
+        width: 171px;
+      }
+    }
+
+    td {
+
+      input {
+          width: 100%;
+      }
+    }
+  }
+}

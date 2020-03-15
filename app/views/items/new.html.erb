@@ -1,0 +1,17 @@
+<% @page_class = 'items' %>
+<div class="mv add">
+  <h2>Add</h2>
+</div>
+<div class="cts">
+  <div class="serch_wrap">
+    <div class="serch">
+      <%= form_tag(new_item_path, method: :get, class: '') do %>
+      <%= text_field_tag :title, @title, class: '', placeholder: "キーワードを入力", size: 40 %>
+      <div class="serch_btn"><%= submit_tag '', class: '' %></div>
+    </div>
+    <% end %>
+  </div>
+
+
+  <%= render 'items', items: @items %>
+</div>

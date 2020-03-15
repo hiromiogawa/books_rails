@@ -1,0 +1,63 @@
+/* ハンバーガーボタン */
+header {
+
+  .menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    z-index: 999;
+    line-height: 0;
+    width: 40px;
+    height: 32px;
+    background-color: #FFF;
+    padding: 8px;
+
+    .menu-inner {
+      display: block;
+      width: 100%;
+
+      span {
+        position: absolute;
+        left: 4px;
+        display: block;
+        width: 32px;
+        height: 3px;
+        background: #000;
+        transition: all .5s;
+
+        &:first-child {
+          top: 4px;
+        }
+
+        &:nth-child(2) {
+          top: 14px;
+        }
+
+        &:last-child {
+          top: 24px;
+        }
+      }
+    }
+
+    &.pushed .menu-inner span {
+      width: 27px;
+
+      &:first-child {
+        top: 14px;
+        left: 7px;
+        transform: rotate(45deg);
+      }
+
+      &:last-child {
+        top: 14px;
+        left: 7px;
+        transform: rotate(-45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+    }
+  }
+}

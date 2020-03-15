@@ -1,0 +1,27 @@
+<% if items.present? %>
+  <ul class="item_list">
+    <% items.each do |item| %>
+    <li>
+      <% if item.persisted? %>
+        <%= link_to(item) do %>
+          <div class="item_img"><img src="<%= item.image_url %>" alt="<%= item.title %>" > </div>
+          <div class="statsu_wrap">
+            <p class="title"><%= item.title %></p>
+            <p class="autor">著者: <%= item.author %></p>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="item_img"><img src="<%= item.image_url %>" alt="<%= item.title %>" ></div>
+        <div class="statsu_wrap">
+          <p class="title"><%= item.title %></p>
+          <p class="autor">著者: <%= item.author %></p>
+        </div>
+      <% end %>
+
+      <% if logged_in? %>
+        <div class="btn"><%= render 'ownerships/addto_button', item: item %></div>
+      <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

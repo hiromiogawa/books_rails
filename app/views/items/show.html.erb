@@ -1,0 +1,49 @@
+<% @page_class = 'item' %>
+<div class="mv">
+  <h2>Book</h2>
+</div>
+<div class="cts">
+  <div class="wrap">
+    <div class="item_image"><img src="<%= @item.image_url %>" alt="<%= @item.title %>"></div>
+    <section class="item_statsu">
+      <h3><%= @item.title %></h3>
+      <% if current_user.addto?(@item)%>
+        <table>
+          <tr>
+            <th>読書状況</th>
+            <td><%= @ownership.statsu %></td>
+          </tr>
+          <tr>
+            <th>媒体</th>
+            <td><%= @ownership.media %></td>
+          </tr>
+          <tr>
+            <th>メモ</th>
+            <td><%= @ownership.memo %></td>
+          </tr>
+          <tr>
+            <th>感想</th>
+            <td><%= @ownership.imp %></td>
+          </tr>
+        </table>
+        <div class="btn"><%= link_to 'ステータスを変更する', edit_item_path(@item) %></div>
+
+      <% else %>
+        <p class="not_add">本棚に追加されていません。</p>
+
+      <% end %>
+      <div class="btn"><%= render 'ownerships/addto_button', item: @item %></div>
+    </section>
+
+  </div>
+
+
+  <section class="add_user">
+    <h3>本棚登録しているユーザー</h3>
+    <% @addto_users.each do |user| %>
+      <ul>
+        <li><%= user.name %></li>
+      </ul>
+    <% end %>
+  </section>
+</div>

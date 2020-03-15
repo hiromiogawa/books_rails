@@ -1,0 +1,34 @@
+<% @page_class = 'items' %>
+<div class="mv mybook">
+  <h2>Mybook</h2>
+</div>
+<div class="cts">
+  <div class="serch_wrap">
+    <p>読書状況で絞る</p>
+    <div class="serch">
+      <%= form_tag(mybook_path, method: "get") do %>
+        <%= select_tag :statsu, options_for_select({全て: '全て', 欲しい: '欲しい', 未読: '未読', 読書中: '読書中', 読書済: '読書済', 中断: '中断', 積み本: '積み本'},'全て')%>
+        <div class="serch_btn"><%= submit_tag '', class: '' %></div>
+      <% end %>
+    </div>
+  </div>
+  <p class="statsu_name"><%= @statsu %></p>
+
+  <ul class="item_list">
+  <% @mybooks.includes([:item]).each do |mybook| %>
+    <li>
+      <%= link_to(mybook.item) do %>
+        <div class="item_img"><img src="<%= mybook.item.image_url %>" alt="<%= mybook.item.title %>" ></div>
+        <div class="statsu_wrap">
+          <p class="title"><%= mybook.item.title %></p>
+          <p class="autor"><%= mybook.statsu%></p>
+        </div>
+        <div class="btn"><%= render 'ownerships/addto_button', item: mybook.item %></div>
+      <% end %>
+    </li>
+  <% end %>
+  </ul>
+  <div class=""><%= paginate @mybooks %></div>
+
+
+</div>

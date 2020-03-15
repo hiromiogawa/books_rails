@@ -1,0 +1,30 @@
+<% @page_title = '会員情報' %>
+<% @page_class = 'user' %>
+
+<div class="mv">
+  <h2>User</h2>
+</div>
+<div class="cts">
+	<table>
+		<%= form_for(@user) do |f| %>
+		<tr>
+			<th>ユーザーネーム</th>
+			<td><%= f.text_field :name, class: '' %></td>
+		</tr>
+		<tr>
+			<th>メールアドレス</th>
+			<td><%= f.email_field :email, class: '' %></td>
+		</tr>
+		<tr>
+			<th>パスワード</th>
+			<td><%= f.password_field :password, class: '' %></td>
+		</tr>
+		<tr>
+			<th>パスワード(確認)</th>
+			<td><%= f.password_field :password_confirmation, class: '' %></td>
+		</tr>
+
+	</table>
+	  <div class="btn"><%= f.submit '変更する', class: '' %> </div>
+	<% end %>
+</div>

@@ -1,0 +1,75 @@
+<% @page_class = 'index' %>
+
+<% unless logged_in? %>
+<div class="top_mv">
+  <div class="txt_area">
+    <p>Your reading management</p>
+  </div>
+</div>
+<div class="top_cts">
+  <div class="sec_wrap">
+    <section class="top_list">
+      <h2>書籍管理</h2>
+    </section>
+    <section class="top_book">
+      <h2>読書管理</h2>
+    </section>
+    <section class="top_user">
+      <h2>ユーザー共有</h2>
+    </section>
+  </div>
+  <div class="btn"><%= link_to 'サービスを始める', signup_path, class: '' %></div>
+  <div class="btn"><%= link_to 'ログイン', login_path %></div>
+</div>
+<% else %>
+<div class="grid-container">
+  <section class="reading">
+    <div class="bg"></div>
+    <ul class="slide">
+    <% @books.each do |book| %>
+      <li>
+        <%= link_to(book) do %>
+          <img src="<%= book.image_url %>" alt="<%= book.title %>" >
+        <% end %>
+        <h3><%= book.title %></h3>
+      </li>
+    <% end %>
+    </ul>
+    <ul class="slide_thumb">
+    <% @books.each do |book| %>
+      <li>
+        <img src="<%= book.image_url %>" alt="<%= book.title %>" >
+      </li>
+    <% end %>
+    </ul>
+  </section>
+  <section class="list">
+    <%= link_to(mybook_path) do %>
+      <div class="bg"></div>
+      <h2 class="heading">List</h2>
+    <% end %>
+  </section>
+  <section class="add">
+    <div class="bg"></div>
+    <h2 class="heading">Add</h2>
+    <div class="serch">
+      <%= form_tag(new_item_path, method: :get, class: '') do %>
+        <%= text_field_tag :title, @title, class: '', placeholder: "serch", size: 40 %>
+        <div class="serch_btn"><%= submit_tag '', class: '' %></div>
+      <% end %>
+    </div>
+  </section>
+  <section class="want">
+    <%= link_to(controller: "items", action: "mybook", statsu: "欲しい") do %>
+      <div class="bg"></div>
+      <h2 class="heading">Want</h2>
+    <% end %>
+  </section>
+  <section class="user">
+    <%= link_to(user_path(current_user)) do %>
+      <div class="bg"></div>
+      <h2 class="heading">User</h2>
+      <% end %>
+  </section>
+</div>
+<% end %>
